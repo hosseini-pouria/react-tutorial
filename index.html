@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #007bec;
+            color: aliceblue;
+            padding: 30px;
+            font-size: 1.2rem;
+        }
+
+        input {
+            border-radius: 7px;
+            padding: 5px;
+        }
+
+        .form-element {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 7px 10px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        function Greeting(props) {
+            return <div>greeting {props.name}</div>;
+        }
+        function Hello(props) {
+            console.log(props)
+            return <div>
+                        <div>Hello {props.name} {props.last}</div>
+                        <Greeting name={props.name}/>
+                    </div>
+        }
+
+        const element = <Hello name="Poria" last="Hosseini"/>
+
+        ReactDOM.render(element, document.getElementById('root'));
+    </script>
+</body>
+</html>
