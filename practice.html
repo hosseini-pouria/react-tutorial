@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #007bec;
+            color: aliceblue;
+            padding: 30px;
+            font-size: 1.2rem;
+        }
+
+        input {
+            border-radius: 7px;
+            padding: 5px;
+        }
+
+        .form-element {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 7px 10px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+<div id="root"></div>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+    class Input extends React.Component {
+        render () {
+            return <div id="todo-app">
+                        <label className="todo-label" htmlFor="new-todo">What do you want to do today?</label>
+                        <input type="text" id="new-todo" className="todo-input" placeholder="type your tasks"/>
+                    </div>
+        }
+    }
+
+    class Checkbox extends React.Component {
+        render () {
+            return <div className="todo-list">
+                        <div className="todo-item">
+                            <input type="checkbox"/>
+                            <span className="todo-content">task 1</span>
+                        </div>
+                    </div>
+        }
+    }
+
+    class ToDo extends React.Component {
+        render () {
+            return <div className="container">
+                        <Input/>
+                        <Checkbox/>
+                    </div>;
+        }
+    }
+
+    ReactDOM.render(<ToDo/>, document.getElementById('root'));
+</script>
+</body>
+</html>
